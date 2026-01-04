@@ -6,15 +6,10 @@ const Navbar = () => {
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
 
-        {/* Brand */}
-        <Link
-          className="navbar-brand fw-bold fs-3"
-          to="/"
-        >
+        <Link className="navbar-brand fw-bold fs-3" to="/">
           News
         </Link>
 
-        {/* Toggle Button */}
         <button
           className="navbar-toggler"
           type="button"
@@ -27,37 +22,16 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Links */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold fs-5">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/business">Business</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/entertainment">Entertainment</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/health">Health</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/science">Science</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/sports">Sports</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/technology">Technology</Link>
-            </li>
+            <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/business">Business</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/entertainment">Entertainment</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/health">Health</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/science">Science</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>
 
           </ul>
         </div>
