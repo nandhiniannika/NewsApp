@@ -43,7 +43,8 @@ const Navbar = () => {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav ms-auto mb-lg-0 fw-bold fs-5">
+      <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold fs-5 text-end text-lg-start">
+
         <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/business">Business</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/entertainment">Entertainment</Link></li>
