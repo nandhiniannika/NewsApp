@@ -23,7 +23,6 @@ const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {/* IMPORTANT: ms-auto instead of margin-left */}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold fs-5">
             <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/business">Business</Link></li>
