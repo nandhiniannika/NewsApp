@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {/* Menu */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto fw-bold fs-5 gap-3 text-center">
+          <ul className="navbar-nav mx-auto fw-bold text-center">
 
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
