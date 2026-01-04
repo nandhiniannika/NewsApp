@@ -1,62 +1,55 @@
 import React, { useEffect, useState } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
-import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const News = ({
-  country = "us",
-  pageSize = 5,
-  category = "general",
-  setProgress
-}) => {
+const News = ({ country = "us", pageSize = 5, category, setProgress }) => {
   const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  const capitalizeFirstLetter = (string) =>
-    string.charAt(0).toUpperCase() + string.slice(1);
+  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  const updateNews = async () => {
+  const fetchNews = async (pageNum = 1) => {
     setProgress(10);
     setLoading(true);
 
-    const url = `/api/news?country=${country}&category=${category}&page=1&pageSize=${pageSize}`;
-    const data = await fetch(url);
-    setProgress(40);
+    const res = await fetch(
+      `/api/news?country=${country}&category=${category}&page=${pageNum}&pageSize=${pageSize}`
+    );
 
-    const parsedData = await data.json();
+    const data = await res.json();
     setProgress(70);
 
-    setArticles(parsedData.articles || []);
-    setTotalResults(parsedData.totalResults || 0);
+    setArticles(data.articles || []);
+    setTotalResults(data.totalResults || 0);
     setLoading(false);
     setProgress(100);
   };
 
   useEffect(() => {
-    document.title = `${capitalizeFirstLetter(category)} - News`;
-    updateNews();
-    // eslint-disable-next-line
-  }, []);
+    document.title = `${capitalize(category)} - News`;
+    setPage(1);
+    fetchNews(1);
+  }, [category]);
 
   const fetchMoreData = async () => {
     const nextPage = page + 1;
     setPage(nextPage);
 
-    const url = `/api/news?country=${country}&category=${category}&page=${nextPage}&pageSize=${pageSize}`;
-    const data = await fetch(url);
-    const parsedData = await data.json();
+    const res = await fetch(
+      `/api/news?country=${country}&category=${category}&page=${nextPage}&pageSize=${pageSize}`
+    );
+    const data = await res.json();
 
-    setArticles(articles.concat(parsedData.articles || []));
-    setTotalResults(parsedData.totalResults || 0);
+    setArticles(articles.concat(data.articles || []));
   };
 
   return (
     <>
-      <h1 className="text-center" style={{ margin: "35px 0", marginTop: "90px" }}>
-        News - Top {capitalizeFirstLetter(category)} Headlines
+      <h1 className="text-center" style={{ margin: "90px 0 30px" }}>
+        Top {capitalize(category)} Headlines
       </h1>
 
       {loading && <Spinner />}
@@ -69,16 +62,16 @@ const News = ({
       >
         <div className="container">
           <div className="row">
-            {articles.map((element) => (
-              <div className="col-md-4" key={element.url}>
+            {articles.map((el) => (
+              <div className="col-md-4" key={el.url}>
                 <Newsitem
-                  title={element.title || "No Title"}
-                  description={element.description || "No Description"}
-                  imgurl={element.urlToImage}
-                  newsUrl={element.url}
-                  author={element.author}
-                  date={element.publishedAt}
-                  source={element.source?.name || "Unknown"}
+                  title={el.title}
+                  description={el.description}
+                  imgurl={el.urlToImage}
+                  newsUrl={el.url}
+                  author={el.author}
+                  date={el.publishedAt}
+                  source={el.source?.name}
                 />
               </div>
             ))}
@@ -87,13 +80,6 @@ const News = ({
       </InfiniteScroll>
     </>
   );
-};
-
-News.propTypes = {
-  country: PropTypes.string,
-  pageSize: PropTypes.number,
-  category: PropTypes.string,
-  setProgress: PropTypes.func.isRequired,
 };
 
 export default News;
