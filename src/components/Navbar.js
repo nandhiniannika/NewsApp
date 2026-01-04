@@ -3,58 +3,66 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div>
-      <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          {/* --- Brand Title --- */}
-          <Link
-            className="navbar-brand"
-            to="/"
-            style={{
-              fontWeight: "bold",
-              fontSize: "30px"
-            }}
-          >
-            News
-          </Link>
+    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <div className="container-fluid">
 
-          {/* --- Navbar Toggle for Mobile --- */}
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+        {/* Brand */}
+        <Link
+          className="navbar-brand fw-bold fs-3"
+          to="/"
+        >
+          News
+        </Link>
 
-          {/* --- Navbar Links --- */}
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul
-              className="navbar-nav me-auto mb-2 mb-lg-0"
-              style={{
-                fontWeight: "bold",
-                marginLeft: "630px",
-                fontSize: "20px"
-              }}
-            >
-              <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/">Home</Link>
-              </li>
-              <li className="nav-item"><Link className="nav-link" to="/Business">Business</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Entertainment">Entertainment</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Health">Health</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Science">Science</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Sports">Sports</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Technology">Technology</Link></li>
-            </ul>
-          </div>
+        {/* Toggle Button */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        {/* Links */}
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold fs-5">
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/business">Business</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/entertainment">Entertainment</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/health">Health</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/science">Science</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/sports">Sports</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/technology">Technology</Link>
+            </li>
+
+          </ul>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 
