@@ -8,7 +8,7 @@ const Navbar = () => {
 
         {/* Brand */}
         <Link className="navbar-brand fw-bold" to="/">
-          News
+         HighLights Today
         </Link>
 
         {/* Toggler for mobile */}
