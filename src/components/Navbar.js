@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div className="container-fluid align-items-center">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <div className="container-fluid">
 
         {/* Brand */}
         <Link className="navbar-brand fw-bold fs-3" to="/">
@@ -16,8 +16,8 @@ const Navbar = () => {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
@@ -25,27 +25,33 @@ const Navbar = () => {
         </button>
 
         {/* Menu */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto fw-bold text-center">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 fw-bold fs-5">
 
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/business">Business</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/entertainment">Entertainment</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/health">Health</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/science">Science</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/sports">Sports</Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/technology">Technology</Link>
             </li>
