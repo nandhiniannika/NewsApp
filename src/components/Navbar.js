@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-      <div className="container-fluid">
+      <div className="container-fluid d-flex align-items-center">
 
         {/* Brand */}
         <Link className="navbar-brand fw-bold" to="/">
           News
         </Link>
 
-        {/* Toggler */}
+        {/* Toggler for mobile */}
         <button
           className="navbar-toggler"
           type="button"
@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {/* Collapsible Menu */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0"> {/* Added me-auto */}
+          <ul className="navbar-nav ms-3 mb-2 mb-lg-0"> {/* Added ms-3 for space from brand */}
 
             <li className="nav-item">
               <Link className="nav-link fw-bold" to="/">Home</Link>
